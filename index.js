@@ -21,7 +21,7 @@ var api = new ParseServer({
       ios: {
           pfx: 'certs/PushNotifCert.p12',
           bundleId: 'com.Modoki.PushNotifsTest',
-          production: true
+          production: false
       }
   }
 });

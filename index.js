@@ -16,7 +16,7 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'PushNotifsTest',
   masterKey: process.env.MASTER_KEY || 'ohai', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'https://localhost:1337/parse',  // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'https://pushnotifstest.herokuapp.com:1337/parse',  // Don't forget to change to https if needed
   push: {
       ios: {
           pfx: 'certs/PushNotifCert.p12',

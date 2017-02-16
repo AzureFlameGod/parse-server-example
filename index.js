@@ -15,16 +15,24 @@ var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'PushNotifsTest',
-  masterKey: process.env.MASTER_KEY || 'ohai', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'https://pushnotifstest.herokuapp.com/parse',  // Don't forget to change to https if needed
+  masterKey: process.env.MASTER_KEY || 'ohai',
+  serverURL: process.env.SERVER_URL || 'https://pushnotifstest.herokuapp.com/parse',
+
+  // 8. This is where you specify the application that you're going to send
+  //    notifications to. Note that it's really important that if your app is
+  //    going into production that the certificate you generate and the
+  //    production flag all have to match
+  // [Step 9 located in cloud/main.js]
   push: {
       ios: {
-          pfx: 'certs/PushNotifCert.p12',
-          bundleId: 'com.Modoki.PushNotifsTest',
+          pfx: 'certs/PushNotifCert.p12', // Location of the certificate file,
+                                          // relative to index.js
+          bundleId: 'com.Modoki.PushNotifsTest', // App Identifier
           production: false
       }
   }
 });
+
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey

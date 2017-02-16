@@ -3,6 +3,8 @@ Parse.Cloud.define('hello', function(req, res) {
   res.success('Hi');
 });
 
+// 9. Define the cloud code function used to send the push notification back to
+//    the device
 Parse.Cloud.define('sendPush', function(req, res) {
     var query = new Parse.Query(Parse.Installation);
     query.exists("deviceToken");
